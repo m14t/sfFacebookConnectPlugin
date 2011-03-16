@@ -121,8 +121,11 @@ class sfFacebook
    */
   public static function getApiKey()
   {
-
-    return sfConfig::get('app_facebook_api_key');
+    $api_key = sfConfig::get('app_facebook_api_key', "xxx");
+    if ( "xxx" == $api_key ) {
+      throw new Exception('{sfFacebookConnect} No API Key set!');
+    }
+    return $api_key;
   }
 
   /**
@@ -134,8 +137,11 @@ class sfFacebook
    */
   public static function getApiSecret()
   {
-
-    return sfConfig::get('app_facebook_api_secret');
+    $api_secret = sfConfig::get('app_facebook_api_secret', "xxx");
+    if ( "xxx" == $api_secret ) {
+      throw new Exception('{sfFacebookConnect} No API Secret set!');
+    }
+    return $api_secret;
   }
 
   /**
@@ -147,8 +153,11 @@ class sfFacebook
    */
   public static function getApiId()
   {
-
-    return sfConfig::get('app_facebook_api_id');
+    $api_id = sfConfig::get('app_facebook_api_id', "xxx");
+    if ( "xxx" == $api_id ) {
+      throw new Exception('{sfFacebookConnect} No API ID set!');
+    }
+    return $api_id;
   }
 
   /**
