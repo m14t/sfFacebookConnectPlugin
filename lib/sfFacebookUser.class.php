@@ -18,9 +18,9 @@ class sfFacebookUser extends sfGuardSecurityUser
   public function getCurrentFacebookUid()
   {
     $sfGuardUser = $this->getGuardUser();
-    if ($sfGuardUser && sfFacebook::getFacebookClient()->get_loggedin_user() == sfFacebook::getGuardAdapter()->getUserFacebookUid($sfGuardUser))
+    if ($sfGuardUser && sfFacebook::getFacebookClient()->getUser() == sfFacebook::getGuardAdapter()->getUserFacebookUid($sfGuardUser))
     {
-      return sfFacebook::getFacebookClient()->get_loggedin_user();
+      return sfFacebook::getFacebookClient()->getUser();
     }
 
     return null;
